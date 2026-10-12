@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Workspace | ICEWORK Technology</title>
+  <link rel="stylesheet" href="/dashboard.css">
+  <script type="importmap">{"imports":{"@netlify/identity":"/vendor/netlify-identity.js","gotrue-js":"/vendor/identity-transport.js"}}</script>
+  <script type="module" src="/dashboard.js"></script>
+</head>
+<body>
+  <div id="boot" class="boot" role="status"><span class="brand-mark">IW</span><p>Opening your workspace…</p><div class="loading-bar"></div></div>
+  <section id="auth" class="auth-layout" hidden>
+    <div class="auth-story">
+      <a class="brand" href="/"><span class="brand-mark">IW</span><span>ICEWORK<small>TECHNOLOGY COMPANY</small></span></a>
+      <div class="story-copy"><span class="eyebrow">YOUR TECHNOLOGY. IN GOOD HANDS.</span><h1>Less chasing.<br>More <em>progress.</em></h1><p>One place for your projects, service requests, and the people making them happen.</p><div class="story-line"><span>01</span> Share what you need</div><div class="story-line"><span>02</span> Plan your next appointment</div><div class="story-line"><span>03</span> Follow your project to completion</div></div>
+      <div class="story-footer"><span>Kaduna, Nigeria</span><span>Built around you ↗</span></div>
+    </div>
+    <div class="auth-panel">
+      <a class="back-link" href="/">← Back to website</a>
+      <div class="auth-card">
+        <span class="eyebrow ink">ICEWORK WORKSPACE</span>
+        <h2 id="authTitle">Welcome back.</h2>
+        <p id="authSubtitle" class="muted">Sign in to keep your next step moving.</p>
+        <div class="auth-tabs" id="authTabs"><button type="button" data-auth="login" class="active">Sign in</button><button type="button" data-auth="signup">Create account</button></div>
+        <form id="authForm">
+          <label id="authNameLabel" hidden>Full name<input name="name" autocomplete="name" maxlength="120"></label>
+          <label id="authEmailLabel">Email address<input name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></label>
+          <label id="authPasswordLabel">Password<input name="password" type="password" autocomplete="current-password" maxlength="256" required placeholder="Your password"></label>
+          <button class="primary full" id="authSubmit" type="submit">Sign in <span>↗</span></button>
+          <p id="authMessage" role="status" aria-live="polite" class="form-message"></p>
+        </form>
+        <button id="forgotPassword" class="text-button" type="button">Forgot your password?</button>
+        <p class="auth-note">Customer accounts are private. Team members use the same sign-in; admin access is assigned by the site owner.</p>
+      </div>
+      <div class="auth-bottom">ICEWORK TECHNOLOGY COMPANY <span>Secure account access</span></div>
+    </div>
+  </section>
+  <div id="workspace" class="workspace" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/"><span class="brand-mark">IW</span><span>ICEWORK<small>TECHNOLOGY COMPANY</small></span></a>
+      <div class="workspace-label">YOUR WORKSPACE</div>
+      <nav id="workspaceNav" aria-label="Dashboard navigation">
+        <button class="nav-item active" data-page="overview"><span class="nav-symbol">◫</span> Overview</button>
+        <button class="nav-item" data-page="projects"><span class="nav-symbol">▱</span> Projects <span class="nav-count" id="projectCount">0</span></button>
+        <button class="nav-item" data-page="enquiries"><span class="nav-symbol">≡</span> Enquiries <span class="nav-count" id="enquiryCount">0</span></button>
+        <button class="nav-item" data-page="bookings"><span class="nav-symbol">▦</span> Appointments</button>
+        <button class="nav-item" data-page="clients" id="clientsNav" hidden><span class="nav-symbol">◎</span> Clients</button>
+        <div class="nav-divider"></div>
+        <button class="nav-item" data-page="account"><span class="nav-symbol">⚙</span> Account</button>
+        <a class="nav-item" href="/"><span class="nav-symbol">↗</span> Visit website</a>
+      </nav>
+      <div class="sidebar-help"><span class="eyebrow">LET’S KEEP YOU MOVING</span><h3>A little help goes a long way.</h3><p>Talk to our team about your technology needs.</p><a href="https://wa.me/2349013190193" target="_blank" rel="noopener">Contact ICEWORK ↗</a></div>
+      <div class="sidebar-account"><span class="avatar" id="sideAvatar">IW</span><div><strong id="sideName">Your account</strong><small id="sideRole">Customer workspace</small></div><button type="button" id="logout" class="logout" aria-label="Sign out" title="Sign out">↪</button></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar"><div><button type="button" class="mobile-menu" id="mobileMenu" aria-label="Toggle dashboard navigation" aria-expanded="false">☰</button><span class="breadcrumb">Workspace <span>/</span> <strong id="breadcrumb">Overview</strong></span></div><div class="topbar-right"><span id="roleBadge" class="role-badge">Customer</span><span class="today" id="today"></span><span class="avatar small" id="topAvatar">IW</span></div></header>
+      <main id="main" tabindex="-1">
+        <div class="page-heading"><div><span class="eyebrow ink" id="pageKicker">THE BIG PICTURE</span><h1 id="pageTitle">Overview</h1><p id="pageDescription" class="muted">Your projects and next steps, all in one place.</p></div><div class="heading-actions"><button type="button" class="secondary" id="refresh">↻ Refresh</button><button type="button" class="primary" id="newRecord">New enquiry <span>+</span></button></div></div>
+        <div class="notice" id="notice" role="status" aria-live="polite" hidden></div>
+        <section id="content" aria-live="polite" aria-busy="true"><div class="skeleton-grid"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div></section>
+        <footer class="workspace-footer"><span>ICEWORK TECHNOLOGY COMPANY</span><span>Technology that works for you.</span></footer>
+      </main>
+    </div>
+  </div>
+  <dialog id="recordDialog"><div class="dialog-header"><div><span class="eyebrow ink">LET’S GET IT MOVING</span><h2 id="dialogTitle">New enquiry</h2></div><button type="button" class="dialog-close" id="closeDialog" aria-label="Close form">×</button></div><form id="recordForm"><div id="dialogFields"></div><p id="dialogMessage" class="form-message" role="status"></p><div class="dialog-actions"><button type="button" class="secondary" id="cancelDialog">Cancel</button><button type="submit" class="primary" id="saveRecord">Save</button></div></form></dialog>
+  <noscript><p class="no-script">Enable JavaScript to access your dashboard. You can also contact ICEWORK through the main website.</p></noscript>
+</body>
+</html>
